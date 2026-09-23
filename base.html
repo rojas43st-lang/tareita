@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Productos</title>
+
+    <meta
+    name="htmx-config"
+    content='{
+        "responseHandling": [
+            {"code": "204", "swap": false},
+            {"code": "[23]..", "swap": true},
+            {"code": "422", "swap": true},
+            {"code": "[45]..", "swap": false}
+        ]
+    }'
+>
+
+    <script
+        src="https://unpkg.com/htmx.org@2.0.4"
+    ></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% block contenido %}
+    {% endblock %}
+
+</body>
+
+</html>

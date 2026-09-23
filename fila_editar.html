@@ -1,0 +1,105 @@
+<tbody id="producto-{{ producto.id }}">
+
+    <tr>
+
+        <td>
+            {{ producto.id }}
+
+            <form
+                id="form-editar-{{ producto.id }}"
+                hx-post="/productos/{{ producto.id }}"
+                hx-target="#producto-{{ producto.id }}"
+                hx-swap="outerHTML"
+            >
+            </form>
+        </td>
+
+        <td>
+
+            <input
+                type="text"
+                name="nombre"
+                value="{{ nombre }}"
+                form="form-editar-{{ producto.id }}"
+            >
+
+            {% if errores.nombre %}
+                <div class="error">
+                    {{ errores.nombre }}
+                </div>
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            <input
+                type="text"
+                name="precio"
+                value="{{ precio }}"
+                form="form-editar-{{ producto.id }}"
+            >
+
+            {% if errores.precio %}
+                <div class="error">
+                    {{ errores.precio }}
+                </div>
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            <input
+                type="text"
+                name="cantidad"
+                value="{{ cantidad }}"
+                form="form-editar-{{ producto.id }}"
+            >
+
+            {% if errores.cantidad %}
+                <div class="error">
+                    {{ errores.cantidad }}
+                </div>
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            <textarea
+                name="descripcion"
+                form="form-editar-{{ producto.id }}"
+            >{{ descripcion or "" }}</textarea>
+
+            {% if errores.descripcion %}
+                <div class="error">
+                    {{ errores.descripcion }}
+                </div>
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            <button
+                type="submit"
+                form="form-editar-{{ producto.id }}"
+            >
+                Guardar
+            </button>
+
+            <button
+                type="button"
+                hx-get="/productos/{{ producto.id }}/cancelar"
+                hx-target="#producto-{{ producto.id }}"
+                hx-swap="outerHTML"
+            >
+                Cancelar
+            </button>
+
+        </td>
+
+    </tr>
+
+</tbody>

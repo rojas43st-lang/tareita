@@ -1,0 +1,39 @@
+<tbody id="producto-{{ producto.id }}">
+
+    <tr>
+
+        <td>
+            {{ producto.id }}
+        </td>
+
+        <td>
+            {{ producto.nombre }}
+        </td>
+
+        <td>
+            {{ producto.precio }}
+        </td>
+
+        <td>
+            {{ producto.cantidad }}
+        </td>
+
+        <td>
+            {{ producto.descripcion or "" }}
+        </td>
+
+        <td>
+
+            <button
+                hx-get="/productos/{{ producto.id }}/editar"
+                hx-target="#producto-{{ producto.id }}"
+                hx-swap="outerHTML"
+            >
+                Editar
+            </button>
+
+        </td>
+
+    </tr>
+
+</tbody>
